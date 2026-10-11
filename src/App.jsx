@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { TarjetaClima } from "./TarjetaClima";
+import { TarjetaClima } from "./componentes/TarjetaClima";
+import { Buscador } from "./componentes/Buscador";
 
 function App() {
 
@@ -69,12 +70,11 @@ function App() {
     <>
       <h1>aplicación de clima</h1>
 
-      <input
-        type="text"
-        value={ciudad}
-        placeholder="Busca una ciudad"
-        onChange={(e) => setCiudad(e.target.value)} />
-      <button onClick={() => cargarDatos(ciudad)}>Buscar</button>
+      <Buscador
+        ciudad={ciudad}
+        setCiudad={setCiudad}
+        cargarDatos={cargarDatos}
+      />
 
       {cargando ? <p>Cargando...</p> : <TarjetaClima clima={clima} />}
     </>
