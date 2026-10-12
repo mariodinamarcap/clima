@@ -82,8 +82,8 @@ function App() {
 
 
   return (
-    <>
-      <h1>aplicación de clima</h1>
+    <main className="min-h-screen bg-sky-50 flex flex-col items-center justify-center gap-6 p-4">
+      <h1 className="text-3xl font-bold text-sky-900">Aplicación de clima</h1>
 
       <Buscador
         ciudad={ciudad}
@@ -92,13 +92,13 @@ function App() {
       />
 
       {cargando ? (
-        <p>Cargando...</p>
+        <p className="text-slate-500">Cargando...</p>
       ) : error ? (
-        <p>{error}</p>
+        <p className="rounded-lg bg-red-50 px-4 py-2 text-red-600">{error}</p>
       ) : (
         <TarjetaClima clima={clima} />
       )}
-    </>
+    </main>
   )
 }
 
