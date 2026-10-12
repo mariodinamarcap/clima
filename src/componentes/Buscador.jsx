@@ -4,7 +4,7 @@ export const Buscador = ({ ciudad, setCiudad, cargarDatos }) => {
         <form
             onSubmit={(e) => {
                 e.preventDefault()
-                cargarDatos(ciudad)
+                cargarDatos(ciudad.trim())
             }}
             className="flex w-full max-w-sm gap-2"
         >
@@ -17,7 +17,8 @@ export const Buscador = ({ ciudad, setCiudad, cargarDatos }) => {
             />
             <button
                 type="submit"
-                className="rounded-lg bg-sky-500 px-4 py-2 font-medium text-white hover:bg-sky-600"
+                disabled={ciudad.trim() === ""}
+                className="rounded-lg bg-sky-500 px-4 py-2 font-medium text-white hover:bg-sky-600 disabled:cursor-not-allowed disabled:opacity-50"
             >
                 Buscar
             </button>
