@@ -66,7 +66,11 @@ function App() {
 
       setClima(climaActual)
     } catch (err) {
-      setError(err.message)
+      if (err.message === "Ciudad no encontrada") {
+        setError("Ciudad no encontrada")
+      } else {
+        setError("No se pudo conectar. Revisa tu internet")
+      }
     } finally {
       setCargando(false)
     }
